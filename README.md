@@ -54,14 +54,23 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 C++几乎所有语法，函数模板，当你重载std的内存分配后，你可以使用几乎所有测std内容。你可以在多个cpp文件中定义你的函数。
 # 生成：
 首先你应该编译shellcode-payload.lib(shellcode本体)
+
 之后编译shellcode-generator.exe
+
 进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
+
 你将得到:shellcode-generator.bin与payload.hpp
+
 接下来你 可以直接编译运行shellcode-actuator.exe(执行器)来验证shellcode是否可用
-我们主要讲payload.hpp ，
-namespace shellcode 下的 const unsigned char payload [] 是shellcode的字节码，
+
+我们主要讲payload.hpp
+
+namespace shellcode 下的 const unsigned char payload [] 是shellcode的字节码
+
 namespace rva 下 记录了你使用SC_EXPORT导出的shellcode入口，其调用规则与你的函数定义一致，由于shellcode注入在多数场景下都是远程线程注入
+
 所以我的payload例子中入口函数使用的是 DWORD(LPVOID)
+
 # 缺陷:
 该框架只支持 X64 原因是目前没有好办法解决x86下的.data数据重定位问题，在x86下.data数据重定位类型为IMAGE_REL_I386_DIR32，意为"RVA 绝对虚拟地址"
 单假如你不在代码中使用静态字符串或者全局变量，你仍旧可以使用x86编译 payload.lib，并用 x86 shellcode-generator.exe生成相应的代码
