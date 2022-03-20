@@ -21,10 +21,13 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 类似该shellcode的生成过程似乎不是很可靠(将无意义的清单文件留存在shellcode中显得不是很专业)，好奇心驱使下，我搜寻了windows 下 生成 shellcode方法,结果不如人意，有的人使用dll to shellcode框架或工具
 有的人直接在c++代码中写下两个标记函数，并提取中间的函数 
 典型的如论坛曾出现过的帖子:
+
 [Cobalt Strike 生成 shellcode](https://bbs.pediy.com/thread-271048.htm)
+
 [MSVC 配合 Get-PEHeader生成shellcode](https://zeronohacker.com/1544.html)
+
 [Win PE系列之导出表解析与ShellCode的编写及应用](https://bbs.pediy.com/thread-269753.htm)
-还比如这个帖子中使用va定位进行提取
+
 [基于C++的shellcode框架](https://bbs.pediy.com/thread-268639.htm)
 
 如何能够既方便，并且稳定的生成shellcode呢?
@@ -55,6 +58,7 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 #### C++异常(请忽略)
 #### SDL检查(请忽略)
 #### 基本运行时检查(请忽略)
+
 # 3 你可以使用什么:
 C++几乎所有语法，函数模板，当你重载std的内存分配后，你可以使用几乎所有测std内容。你可以在多个cpp文件中定义你的函数。
 # 生成：
