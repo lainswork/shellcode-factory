@@ -84,7 +84,8 @@ coff全称 通用对象文件格式(Common Object File Format)，我们常用的
 
 # payload 部分代码
 payload 中所编写的代码就是shellcode代码
-```
+
+```C++
 
 SC_EXPORT 
 DWORD ShellCodeEntryPoint(LPVOID lpParameter) {
