@@ -1,12 +1,30 @@
 # shellcode-factory
 shellcode 生成框架
 
-# shellcode 特点
-shellcode与位置无关:这代表我们无需在执行或注入shellcode前进行任何重定位工作
-shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带任何多余的数据
+# shellcode特点
+位置无关，在执行或注入前无需进行任何额外的处理。
 
-# 应用场景
-代码注入 游戏反作弊动态下发检测
+简洁小巧，可以轻松的在不同的功能中实现通用的功能。
+
+# 使用方法
+
+编译`shellcode-payload.lib`
+
+编译`shellcode-generator.exe`
+
+进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
+
+你将得到:shellcode-generator.bin与payload.hpp
+
+接下来你 可以直接编译运行shellcode-actuator.exe(执行器)来验证shellcode是否可用
+
+我们主要讲payload.hpp
+
+namespace shellcode 下的 const unsigned char payload [] 是shellcode的字节码
+
+namespace rva 下 记录了你使用SC_EXPORT导出的shellcode入口，其调用规则与你的函数定义一致，由于shellcode注入在多数场景下都是远程线程注入
+
+所以我的payload例子中入口函数使用的是 DWORD(LPVOID)
 
 # 起因与经过
 21年中旬朋友在windows的dwm进程中发现一段异常执行的 "恶意代码"
@@ -36,13 +54,8 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 比如va定位提取无法将代码写在多个cpp文件中，并受限于编译器优化策略，有时需要提取的函数并不在“标记函数”之间
 再比如无法利用编译器对代码进行优化以减小代码大小
 
-# 当然
-本框架也不一定满足所有需求，但是竭尽全力。
-
 # 原理
 该框架的核心是一个shellcode 链接器，我们将需要生成的shellcode编译为lib，shellcode-generator(链接器)可以将lib解析为多个obj文件，并从中提取原始的字节码，最后进行重定位生成.bin文件和.hpp文件
-
-# 使用方法和代码展示
 
 # 部分代码
 
@@ -61,25 +74,7 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 
 # 3 你可以使用什么:
 C++几乎所有语法，函数模板，当你重载std的内存分配后，你可以使用几乎所有测std内容。你可以在多个cpp文件中定义你的函数。
-# 生成：
 
-编译shellcode-payload.lib(shellcode)
-
-编译shellcode-generator.exe
-
-进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
-
-你将得到:shellcode-generator.bin与payload.hpp
-
-接下来你 可以直接编译运行shellcode-actuator.exe(执行器)来验证shellcode是否可用
-
-我们主要讲payload.hpp
-
-namespace shellcode 下的 const unsigned char payload [] 是shellcode的字节码
-
-namespace rva 下 记录了你使用SC_EXPORT导出的shellcode入口，其调用规则与你的函数定义一致，由于shellcode注入在多数场景下都是远程线程注入
-
-所以我的payload例子中入口函数使用的是 DWORD(LPVOID)
 
 # 缺陷:
 该框架只支持 X64 原因是目前没有好办法解决x86下的.data数据重定位问题，在x86下.data数据重定位类型为IMAGE_REL_I386_DIR32，意为"RVA 绝对虚拟地址"
