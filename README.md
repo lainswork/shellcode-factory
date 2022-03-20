@@ -6,25 +6,34 @@
 
 > 简洁小巧，可以轻松的在不同的功能中实现通用的功能。
 
-# 使用方法
+# 🚀使用方法
 
-> 编译`shellcode-payload.lib`
+```shell
 
-> 编译`shellcode-generator.exe`
+> git clone https://github.com/lainswork/shellcode-factory.git
 
-进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
+> cd shellcode-factory
 
-你将得到:shellcode-generator.bin与payload.hpp
+> shellcode-factory.sln
 
-接下来你 可以直接编译运行shellcode-actuator.exe(执行器)来验证shellcode是否可用
+生成`shellcode-payload.lib`
 
-我们主要讲payload.hpp
+生成`shellcode-generator.exe`
 
-namespace shellcode 下的 const unsigned char payload [] 是shellcode的字节码
+> cd x64
 
-namespace rva 下 记录了你使用SC_EXPORT导出的shellcode入口，其调用规则与你的函数定义一致，由于shellcode注入在多数场景下都是远程线程注入
+> cd Debug
 
-所以我的payload例子中入口函数使用的是 DWORD(LPVOID)
+> shellcode-generator.exe(链接并且生成生成shellcode-generator.bin和payload.hpp)
+
+生成`shellcode-actuator.exe`
+
+> shellcode-actuator.exe
+
+```
+
+![image](https://user-images.githubusercontent.com/36320938/159157628-21b95fcc-cb2c-409f-ad04-dbb889efc735.png)
+
 
 # 起因与经过
 21年中旬朋友在windows的dwm进程中发现一段异常执行的 "恶意代码"
