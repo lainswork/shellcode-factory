@@ -1,5 +1,5 @@
 # shellcode-factory
-> shellcode 生成框架
+> 一个简单shellcode生成框架，使用后可以变得开心。（开发中...）
 
 # shellcode特点
 > 位置无关，在执行或注入前无需进行任何额外的处理。
