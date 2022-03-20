@@ -1,10 +1,13 @@
 # shellcode-factory
 shellcode 生成框架
+
 # shellcode 特点
 shellcode与位置无关:这代表我们无需在执行或注入shellcode前进行任何重定位工作
 shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带任何多余的数据
-# 应用场景: 
+
+# 应用场景
 代码注入 游戏反作弊动态下发检测
+
 # 起因与经过
 21年中旬朋友在windows的dwm进程中发现一段异常执行的 "恶意代码"
 在使用ida进行简单分析后得出结论:“该代码在dwm中 hook 相关渲染函数，恶意截取用户桌面画面”，这段代码的来源指向了一款曾在2017年爆火网络的多人射击游戏，猜测目的为“截取用户游戏画面以判断用户是否在作弊”。
@@ -13,6 +16,7 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 在该shellcode中，存在一些只会被链接进exe的清单文件
 我猜测，该shellcode的开发者先使用编译器编译并链接了一个不带crt的exe
 之后对该exe进行加壳，最后使用exe to shellcode类的工具生成该代码。
+
 # 反思
 类似该shellcode的生成过程似乎不是很可靠(将无意义的清单文件留存在shellcode中显得不是很专业)，好奇心驱使下，我搜寻了windows 下 生成 shellcode方法,结果不如人意，有的人使用dll to shellcode框架或工具
 有的人直接在c++代码中写下两个标记函数，并提取中间的函数 
@@ -34,6 +38,7 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 
 # 原理
 该框架的核心是一个shellcode 链接器，我们将需要生成的shellcode编译为lib，shellcode-generator(链接器)可以将lib解析为多个obj文件，并从中提取原始的字节码，最后进行重定位生成.bin文件和.hpp文件
+
 # 使用方法和代码展示
 
 # 部分代码
@@ -53,9 +58,10 @@ shellcode简洁小巧:除必要的执行代码与数据外，shellcode不携带�
 # 3 你可以使用什么:
 C++几乎所有语法，函数模板，当你重载std的内存分配后，你可以使用几乎所有测std内容。你可以在多个cpp文件中定义你的函数。
 # 生成：
-首先你应该编译shellcode-payload.lib(shellcode本体)
 
-之后编译shellcode-generator.exe
+编译shellcode-payload.lib(shellcode)
+
+编译shellcode-generator.exe
 
 进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
 
@@ -76,8 +82,9 @@ namespace rva 下 记录了你使用SC_EXPORT导出的shellcode入口，其调�
 单假如你不在代码中使用静态字符串或者全局变量，你仍旧可以使用x86编译 payload.lib，并用 x86 shellcode-generator.exe生成相应的代码
 
 如果有看雪网友了解 IMAGE_REL_I386_DIR32 和其中的细节，欢迎在帖子后面评论补充。
-# Future:
-后期会修改api导入策略， 摆脱lazy_importer，实现可以在payload中直接使用api函数和crt函数的方法.
-实现链接时混淆和VM，这样我们可以将shellcode-generator(链接生成器)作为服务器功能，将payload.lib储存于服务器，每次执行shellcode获取都会生成完全不同的代码。（这个比较困难）
+# Todo:
+修改api导入策略，摆脱lazy_importer，实现可以在payload中直接使用api函数和crt函数的方法。
+
+实现链接时混淆和虚拟化，这样我们可以将shellcode-generator(链接生成器)作为服务器功能，将payload.lib储存于服务器，每次执行shellcode获取都会生成完全不同的代码。（这个比较困难）
 # 当你熟悉本框架后，你可根据你的技术进行魔改，欢迎分享在评论区。
 # 在几周后，我将模仿上面曾提到的“dwm截图shellcode”编写代码，以期实现相同的效果，从事反作弊开发的看雪网友可以将代码作为自己反作弊系统的一部分，以补充反作弊效能。
