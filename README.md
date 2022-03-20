@@ -1,16 +1,16 @@
 # shellcode-factory
-shellcode 生成框架
+> shellcode 生成框架
 
 # shellcode特点
-位置无关，在执行或注入前无需进行任何额外的处理。
+> 位置无关，在执行或注入前无需进行任何额外的处理。
 
-简洁小巧，可以轻松的在不同的功能中实现通用的功能。
+> 简洁小巧，可以轻松的在不同的功能中实现通用的功能。
 
 # 使用方法
 
-编译`shellcode-payload.lib`
+> 编译`shellcode-payload.lib`
 
-编译`shellcode-generator.exe`
+> 编译`shellcode-generator.exe`
 
 进入它们所在的文件夹，执行shellcode-generator.exe(链接生成器)
 
