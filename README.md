@@ -1,4 +1,4 @@
-# shellcode-factory
+# [shellcode-factory](https://github.com/lainswork/shellcode-factory)
 > 一个简单`shellcode`生成框架，使用后可以变得开心。（开发中...）
 
 # shellcode特点
