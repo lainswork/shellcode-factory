@@ -1,5 +1,11 @@
 # [shellcode-factory](https://github.com/lainswork/shellcode-factory)
-> 一个简单`shellcode`生成框架，使用后可以变得开心。（开发中...）
+## 一个简单`shellcode`生成框架，使用后可以变得开心。（开发中...）
+
+[![LICENSE](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![](https://img.shields.io/badge/OS-any-brightgreen)]()
+[![](https://img.shields.io/badge/compiler-any-brightgreen)]()
+
+<br />
 
 # shellcode特点
 > 位置无关，在执行或注入前无需进行任何额外的处理。
