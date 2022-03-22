@@ -162,7 +162,6 @@
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <ControlFlowGuard>false</ControlFlowGuard>
-      <AdditionalOptions>-mllvm -fla -mllvm -split -mllvm -split_num=5 %(AdditionalOptions)</AdditionalOptions>
       <SupportJustMyCode>false</SupportJustMyCode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
