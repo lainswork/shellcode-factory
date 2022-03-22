@@ -98,6 +98,9 @@ vector<string> &obj::exports() {
                             if (std::regex_match(export_name, base_match, std::regex("^\"(.*?)\""))) {
                                 export_name = base_match[1].str();
                             }
+                            if (std::regex_match(export_name, base_match, std::regex("(.*?),DATA$"))) {
+                                export_name = base_match[1].str();
+                            }
                             _exports.push_back(export_name);
                         }
 

@@ -21,12 +21,21 @@
     <ClCompile Include="crt.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="dwm-capture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lazy_importer.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xorstr.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dwm-capture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shellcode.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
