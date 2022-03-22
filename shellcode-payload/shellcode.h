@@ -32,4 +32,3 @@ void __DbgPrint(const char *format, Args... args) {
 #define DbgPrint(format, ...)
 #endif // _DEBUG
 
-

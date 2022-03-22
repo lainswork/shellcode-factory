@@ -15,13 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="main-demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="crt.cpp">
+    <ClCompile Include="dwm-screen-shot-demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="dwm-capture.cpp">
+    <ClCompile Include="call-extern-demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
