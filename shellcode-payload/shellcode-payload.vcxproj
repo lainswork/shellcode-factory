@@ -54,6 +54,7 @@
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
   </ImportGroup>
   <ImportGroup Label="Shared">
   </ImportGroup>
@@ -114,7 +115,7 @@
       <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MinSpace</Optimization>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <ControlFlowGuard>false</ControlFlowGuard>
@@ -157,11 +158,10 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
-      <Optimization>Disabled</Optimization>
+      <Optimization>MinSpace</Optimization>
       <BufferSecurityCheck>false</BufferSecurityCheck>
       <ExceptionHandling>false</ExceptionHandling>
       <ControlFlowGuard>false</ControlFlowGuard>
-      <AdditionalOptions>-mllvm -fla -mllvm -split -mllvm -split_num=5 %(AdditionalOptions)</AdditionalOptions>
       <SupportJustMyCode>false</SupportJustMyCode>
       <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
@@ -174,14 +174,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="crt.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="call-extern-demo.cpp" />
+    <ClCompile Include="dwm-screen-shot-demo.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main-demo.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="dwm-capture.h" />
     <ClInclude Include="lazy_importer.hpp" />
+    <ClInclude Include="shellcode.h" />
     <ClInclude Include="xorstr.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
   </ImportGroup>
 </Project>

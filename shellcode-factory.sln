@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 16.0.31025.194
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellcode-generator", "shellcode-generator\shellcode-generator.vcxproj", "{7ADA88EB-A76B-4854-9DFB-CAA17412A6DE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BD5CA44B-BF4B-4F32-81DE-9C7890585F39} = {BD5CA44B-BF4B-4F32-81DE-9C7890585F39}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "shellcode-payload", "shellcode-payload\shellcode-payload.vcxproj", "{BD5CA44B-BF4B-4F32-81DE-9C7890585F39}"
 EndProject

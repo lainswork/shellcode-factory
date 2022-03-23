@@ -15,10 +15,13 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="main-demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="crt.cpp">
+    <ClCompile Include="dwm-screen-shot-demo.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="call-extern-demo.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
@@ -27,6 +30,12 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="xorstr.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="dwm-capture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="shellcode.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

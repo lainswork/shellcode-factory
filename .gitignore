@@ -2,7 +2,8 @@
 # Edit at https://www.toptal.com/developers/gitignore?templates=intellij+all,visualstudio,visualstudiocode,cmake,c,c++
 /out/
 /build/
-
+/x64/
+/Debug/
 ### C ###
 # Prerequisites
 *.d

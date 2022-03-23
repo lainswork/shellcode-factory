@@ -24,6 +24,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="coff.h" />
+    <ClInclude Include="misc.hpp" />
     <ClInclude Include="rang.hpp" />
     <ClInclude Include="rang_impl.hpp" />
     <ClInclude Include="span.hpp" />

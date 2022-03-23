@@ -35,5 +35,8 @@
     <ClInclude Include="span.hpp">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="misc.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
