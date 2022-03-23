@@ -36,9 +36,13 @@
 // 现在你得到了 ./x64/Debug/payload.hpp     Now, u get ./x64/Debug/payload.hpp
 
 ```
+> Message演示
 
 ![image](https://user-images.githubusercontent.com/36320938/159157628-21b95fcc-cb2c-409f-ad04-dbb889efc735.png)
 
+> dwm截屏演示
+
+https://user-images.githubusercontent.com/46841563/159622629-b337380b-7ca2-4f3a-b043-d278be75a08f.mp4
 
 # 起因与经过
 21年中旬朋友在windows的dwm进程中发现一段异常执行的 "恶意代码",
